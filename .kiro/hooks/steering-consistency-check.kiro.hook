@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Verificar Consistência dos Steering Files",
+  "description": "Quando qualquer steering file de refinamento ou dev for editado, verifica se outros arquivos da mesma pasta precisam ser atualizados para manter consistência.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      ".kiro/steering/**/*.md"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "O arquivo de steering {{file}} foi editado. Verifique se a mudança impacta outros arquivos da mesma pasta:\n\n- Se foi editado um arquivo em `agents/Refinamentos/`: verifique se `refinamento-agent.md`, `discovery-catalogo.md`, `template-epico.md`, `template-dena.md` e `template-ddpl.md` ainda estão consistentes entre si.\n- Se foi editado um arquivo em `agents/devs/`: verifique se `dev-agent.md`, `padroes-sql-cogna.md`, `exemplos-validados.md` e `uso-handoff.md` ainda estão consistentes entre si.\n- Se foi editado um arquivo em `contexto/demandas/`: verifique se o arquivo de produto correspondente em `contexto/produtos/` precisa ser atualizado.\n- Se foi editado um arquivo em `contexto/projetos/`: verifique se alguma demanda ou produto referencia informações que mudaram.\n\nSe houver inconsistência, aponte quais arquivos precisam de atualização e o que deve mudar. Se tudo estiver consistente, confirme em uma linha."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Sincronizar contexto de demanda após editar produto",
+  "description": "Quando um arquivo de contexto de produto é editado, verifica se o arquivo de demanda correspondente precisa ser atualizado",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      ".kiro/steering/contexto/produtos/*.md"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Um arquivo de contexto de produto em `.kiro/steering/contexto/produtos/` foi editado. Faça o seguinte:\n1. Leia o arquivo editado e identifique o(s) card(s) Jira referenciados (ex: DAPL-XXX).\n2. Verifique se existe um arquivo correspondente em `.kiro/steering/contexto/demandas/` (ex: `dapl-550.md`).\n3. Se existir, compare as seções de \"Decisões tomadas\" e \"Lacunas em aberto\" entre os dois arquivos.\n4. Se houver divergência ou informação nova no arquivo de produto que não está no arquivo de demanda, atualize o arquivo de demanda para refletir as mudanças.\n5. Se não existir arquivo de demanda correspondente, informe ao usuário e pergunte se deseja criar."
+  }
+}

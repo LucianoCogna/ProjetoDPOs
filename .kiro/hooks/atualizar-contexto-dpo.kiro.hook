@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Atualizar Contexto do DPO",
+  "description": "Ao final de cada sessão, revisa a conversa e atualiza o arquivo contexto-dpo.md com novos projetos, tabelas, stakeholders, termos ou decisões técnicas relevantes que surgiram.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Revise a conversa desta sessão e atualize o arquivo `.kiro/steering/contexto-dpo.md` com qualquer informação nova e relevante que surgiu. \n\nRegras para atualização:\n- **Projetos em andamento:** adicione épicos novos ou atualize status/stakeholders de projetos existentes\n- **Tabelas-chave:** adicione tabelas novas que foram mencionadas ou confirmadas\n- **Glossário:** adicione termos novos que surgiram nas discussões\n- **Fontes de dados:** adicione sistemas novos identificados\n- **O que NÃO está no escopo:** atualize se ficou mais claro\n- Preencha campos `[? completar]` se a conversa trouxe a informação\n\nNão remova informação existente — apenas adicione ou corrija.\nSe a conversa não trouxe nada novo relevante para o contexto da área, não faça nada."
+  }
+}

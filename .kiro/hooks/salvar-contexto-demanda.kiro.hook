@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Salvar Contexto da Demanda",
+  "description": "Ao final de uma sessão de trabalho, salva o estado da demanda em contexto/demandas/[tema].md com tudo que foi discutido, decidido e o que ainda está em aberto.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Revise toda a conversa desta sessão e salve o estado atual da demanda em `.kiro/steering/contexto/demandas/`.\n\n**Regras para identificar o arquivo:**\n- Use o tema definido no início da sessão (via hook 'Iniciar Sessão de Demanda') ou infira pelo assunto principal da conversa\n- Nome do arquivo: slug em lowercase com hífens (ex: `dapl-550.md`, `dapl-xxx-alianca.md`)\n- **Salvar sempre em `.kiro/steering/contexto/demandas/`** — contexto operacional de sessão\n- Se o arquivo já existir: atualize sem apagar o histórico — adicione ou corrija seções\n- Se não existir: crie usando a estrutura abaixo\n- **Nota:** se a demanda resultar em um produto consolidado (view/tabela reutilizável já validada), criar também um arquivo em `.kiro/steering/contexto/produtos/` com as decisões técnicas estáveis\n\n**Estrutura do arquivo a criar/atualizar:**\n\n```markdown\n---\ninclusion: manual\n---\n\n# Contexto de Sessão — [Nome/ID da Demanda]\n\n> **Como usar:** chame com `#[nome-do-arquivo]` no início de uma nova sessão para retomar de onde parou.\n\n**Última atualização:** [data de hoje]\n**Status atual:** [status resumido em 1 frase]\n\n---\n\n## O que é essa demanda\n\n[1-2 frases descrevendo o objetivo. Extrair da conversa.]\n\n---\n\n## O que já foi discutido\n\n[Bullet points com os principais pontos abordados na sessão. Cronológico se relevante.]\n\n---\n\n## Decisões tomadas\n\n[Bullet points com decisões concretas já definidas — técnicas, de escopo, de stakeholders.]\n\n---\n\n## Lacunas em aberto\n\n[Bullet points com o que ainda precisa ser validado, confirmado ou decidido. Manter os [?] do formato padrão.]\n\n---\n\n## Outputs gerados nesta sessão\n\n[Lista de documentos gerados: épico, DENA, DDPL, queries SQL. Inclua o conteúdo completo do último output gerado, ou link pro Jira se já foi publicado.]\n\n---\n\n## Próximos passos\n\n[O que precisa acontecer antes da próxima sessão: validações, perguntas a fazer, reuniões a agendar.]\n```\n\n**Regras de atualização:**\n- Nunca apague informação já salva — adicione ou corrija\n- Mova itens de 'Lacunas em aberto' para 'Decisões tomadas' quando foram resolvidos na sessão\n- Atualize 'Última atualização' e 'Status atual' sempre\n- Se a sessão não gerou nada novo relevante, não crie nem modifique o arquivo — avise o DPO\n\nApós salvar, confirme: Contexto salvo em .kiro/steering/contexto/demandas/[nome-do-arquivo].md"
+  }
+}

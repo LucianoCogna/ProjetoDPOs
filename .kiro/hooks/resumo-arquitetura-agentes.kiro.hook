@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Resumo da Arquitetura de Agentes",
+  "description": "Botão manual para gerar um resumo atualizado da arquitetura de agentes — útil para onboarding de novos DPOs ou para revisão geral do sistema.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Gere um resumo claro e atualizado da arquitetura de agentes deste workspace, baseado nos steering files atuais. O resumo deve cobrir:\n\n1. **Quais agentes existem** e qual é o propósito de cada um\n2. **Quais modos de operação** cada agente suporta\n3. **Quais documentos cada agente pode gerar** e quando\n4. **Como os agentes se conectam** (ex: output do refinamento vira input do dev)\n5. **O que NÃO está no escopo** de cada agente\n\nFormato: markdown limpo, adequado para colar num README ou num Confluence. Tom direto, sem floreio."
+  }
+}

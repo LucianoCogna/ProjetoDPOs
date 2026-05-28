@@ -1,0 +1,5 @@
+# Ignorar o repositório datax-gcc (tem seu próprio git)
+datax-gcc/
+
+# Ignorar settings com possíveis tokens/secrets
+.kiro/settings/

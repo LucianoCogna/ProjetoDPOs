@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Iniciar Sessão de Demanda",
+  "description": "Pergunta qual demanda ou tema será abordado na sessão e carrega o contexto salvo, se existir.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "O DPO quer iniciar ou retomar uma sessão de trabalho em uma demanda específica.\n\n**Passo 1 — Perguntar o tema**\nPergunta ao DPO: 'Qual demanda ou tema você quer trabalhar agora? (Ex: DAPL-550, Estrutura Organizacional, ESG Diversidade...)'\n\n**Passo 2 — Verificar se existe arquivo salvo**\nApós receber o tema, verifique se existe um arquivo correspondente em `.kiro/steering/contexto/demandas/`. O nome do arquivo segue o padrão `[slug-do-tema].md` (ex: `dapl-550.md`, `estrutura-organizacional.md`).\n\n**Passo 3a — Se o arquivo existir:**\n- Leia o arquivo\n- Apresente um resumo compacto: o que já foi discutido, decisões tomadas e lacunas em aberto\n- Diga: 'Contexto carregado. Pode continuar de onde parou.'\n\n**Passo 3b — Se o arquivo NÃO existir:**\n- Diga: 'Nenhum contexto salvo para essa demanda ainda. Vou criar o arquivo ao final da sessão.'\n- Anote internamente o tema para usar no nome do arquivo ao salvar\n\nNão gere documentos nem inicie nenhum trabalho além desta identificação. Aguarde o DPO continuar."
+  }
+}
