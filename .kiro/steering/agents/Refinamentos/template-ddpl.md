@@ -59,6 +59,7 @@ Realizar a ingestão da tabela [nome] do sistema [origem] para o Data Lake, conf
 - [ ] Ingestão rodando na frequência definida
 - [ ] Schema da tabela destino documentado
 - [ ] Conferência de volumetria origem vs destino em amostragem
+- [ ] **Engenheiro envia evidência de volumetria** — print ou query com contagem de registros da tabela ingerida no Lake, comparada com a origem
 - [ ] [? outros critérios específicos]
 ```
 
@@ -145,6 +146,7 @@ Realizar a ingestão da tabela [nome] do sistema [origem] para o Data Lake.
 - [ ] Tabela disponível no schema destino com o nome especificado
 - [ ] Ingestão rodando na frequência definida
 - [ ] Conferência de volumetria origem vs destino
+- [ ] **Engenheiro envia evidência de volumetria** — print ou query com contagem de registros da tabela ingerida no Lake, comparada com a origem
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-inclusion: always
+inclusion: manual
 ---
 
 # Agente Dev — Gerador de SQL a partir de DENAs | Cogna
